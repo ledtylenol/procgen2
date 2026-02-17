@@ -18,12 +18,14 @@ log = { version = "0.4", features = [
   "max_level_debug",
   "release_max_level_warn",
 ] }
-bevy-inspector-egui ={  version = "*", optional = true }
+bevy-inspector-egui = { version = "*", optional = true }
 tracing = { version = "0.1", features = [
   "max_level_debug",
   "release_max_level_warn",
 ] }
-avian3d = {version = "0.6.0-rc.1", features = ["serialize"]}
+avian3d = { version = "0.6.0-rc.1", features = ["serialize"] }
+noise = "0.9.0"
+rand = "0.10.0"
 
 # Idiomatic Bevy code often triggers these lints, and the CI workflow treats them as errors.
 # In some cases they may still signal poor code quality however, so consider commenting out these lines.
@@ -59,10 +61,6 @@ dev_native = [
 # Enable a large amount of optimization in the dev profile for dependencies.
 [profile.dev.package."*"]
 opt-level = 3
-
-# Remove expensive debug assertions due to <https://github.com/bevyengine/bevy/issues/14291>
-[profile.dev.package.wgpu-types]
-debug-assertions = false
 
 [profile.release]
 # Compile the entire crate as one unit.
